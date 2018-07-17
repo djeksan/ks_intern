@@ -49,8 +49,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+<<<<<<< HEAD
             'lastName' => 'required|string|max:255',
             'firstName' => 'required|string|max:255',
+=======
+            'name' => 'required|string|max:255',
+>>>>>>> 4a5eaf5b59f47980ff7ab839b8f6b46f9661c9f5
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -64,6 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+<<<<<<< HEAD
 
         $pas_tok= password_hash("rasmuslerdorf", PASSWORD_BCRYPT);
 
@@ -75,6 +80,10 @@ class RegisterController extends Controller
             'firstName' => $data['firstName'],
              'passwordTokin' => $pas_tok,
             'city'=>'Odessa',
+=======
+        return User::create([
+            'name' => $data['name'],
+>>>>>>> 4a5eaf5b59f47980ff7ab839b8f6b46f9661c9f5
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
